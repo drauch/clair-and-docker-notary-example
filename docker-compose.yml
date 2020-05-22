@@ -20,7 +20,7 @@ services:
       REGISTRY_HTTP_TLS_KEY: /opt/certs/registry.example.local.key
       REGISTRY_HTTP_SECRET: BTpFsd82m01jdyg7ubhew78huij%
     volumes:
-      - registry_data:/var/lib/registry
+      - ./registry_data:/var/lib/registry
       - ./files/certs:/opt/certs
       - ./files/auth:/opt/auth
   notary-server:
@@ -66,7 +66,7 @@ services:
       - db
     volumes:
       - ./files/mysql-initdb.d:/docker-entrypoint-initdb.d
-      - notary_data:/var/lib/mysql
+      - ./notary_data:/var/lib/mysql
     environment:
       - TERM=dumb
       - MYSQL_ALLOW_EMPTY_PASSWORD="true"
